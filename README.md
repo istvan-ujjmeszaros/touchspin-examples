@@ -23,11 +23,14 @@ pnpm run webcomponent-vanilla
 ```
 examples/
 ├── angular/           # Angular examples (17, 18, 19, 20)
-│   ├── vanilla/       # Basic vanilla renderer
-│   ├── bootstrap3/    # Bootstrap 3 styling
-│   ├── bootstrap4/    # Bootstrap 4 styling
-│   ├── bootstrap5/    # Bootstrap 5 styling
-│   └── tailwind/      # Tailwind CSS styling
+│   ├── angular-17/    # Angular 17 compatibility
+│   │   └── vanilla/   # Basic vanilla renderer
+│   ├── angular-18/    # Angular 18 compatibility
+│   │   └── vanilla/   # Basic vanilla renderer
+│   ├── angular-19/    # Angular 19 compatibility
+│   │   └── vanilla/   # Basic vanilla renderer
+│   └── angular-20/    # Angular 20 compatibility
+│       └── vanilla/   # Basic vanilla renderer
 ├── react/             # React examples
 │   ├── vanilla/
 │   ├── bootstrap3/
@@ -89,11 +92,11 @@ pnpm install
 ### From Root Directory
 
 ```bash
-# Angular
-pnpm run angular17-vanilla
-pnpm run angular18-vanilla
-pnpm run angular19-vanilla
-pnpm run angular20-vanilla
+# Angular (each version demonstrates compatibility with a different major release)
+pnpm run angular17-vanilla  # Angular 17
+pnpm run angular18-vanilla  # Angular 18
+pnpm run angular19-vanilla  # Angular 19
+pnpm run angular20-vanilla  # Angular 20
 
 # React
 pnpm run react-vanilla

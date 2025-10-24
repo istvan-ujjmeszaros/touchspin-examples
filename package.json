@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "description": "Comprehensive examples for TouchSpin v5 across all frameworks and configurations",
   "scripts": {
-    "angular17-vanilla": "cd examples/angular/vanilla && pnpm dev",
-    "angular18-vanilla": "cd examples/angular/vanilla && pnpm dev",
-    "angular19-vanilla": "cd examples/angular/vanilla && pnpm dev",
-    "angular20-vanilla": "cd examples/angular/vanilla && pnpm dev",
+  "angular17-vanilla": "cd examples/angular/angular-17/vanilla && pnpm dev",
+  "angular18-vanilla": "cd examples/angular/angular-18/vanilla && pnpm dev",
+  "angular19-vanilla": "cd examples/angular/angular-19/vanilla && pnpm dev",
+  "angular20-vanilla": "cd examples/angular/angular-20/vanilla && pnpm dev",
     "react-vanilla": "cd examples/react/vanilla && pnpm dev",
     "react-bootstrap5": "cd examples/react/bootstrap5 && pnpm dev",
     "vue-vanilla": "cd examples/vue/vanilla && pnpm dev",
@@ -37,8 +37,8 @@
   "author": "TouchSpin Contributors",
   "license": "MIT",
   "engines": {
-    "node": ">=18.17.0",
-    "pnpm": ">=8.0.0"
+  "node": ">=18.17.0",
+  "pnpm": ">=9.12.0"
   },
-  "packageManager": "pnpm@9.0.0"
+  "packageManager": "pnpm@9.12.0"
 }
