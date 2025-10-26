@@ -29,8 +29,8 @@
     "vite": "^6.0.11"
   },
   "dependencies": {
-    "@touchspin/svelte": "^5.0.0",
     "@touchspin/renderer-vanilla": "^5.0.1",
+    "@touchspin/svelte": "^5.0.4",
     "svelte": "^5.0.0"
   }
 }
