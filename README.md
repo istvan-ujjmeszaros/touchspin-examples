@@ -8,62 +8,46 @@ Comprehensive examples for TouchSpin v5 across all supported frameworks and conf
 # Install all dependencies
 pnpm install
 
-# Run any example
+# Run any framework example
 pnpm run angular17-vanilla
 pnpm run react-vanilla
-pnpm run vue-bootstrap5
+pnpm run vue-vanilla
 pnpm run svelte-vanilla
-pnpm run vanilla-esm
-pnpm run jquery-bootstrap5
-pnpm run webcomponent-vanilla
 ```
 
 ## 📁 Examples Structure
 
 ```
-examples/
-├── angular/           # Angular examples (17, 18, 19, 20)
-│   ├── angular-17/    # Angular 17 compatibility
-│   │   └── vanilla/   # Basic vanilla renderer
-│   ├── angular-18/    # Angular 18 compatibility
-│   │   └── vanilla/   # Basic vanilla renderer
-│   ├── angular-19/    # Angular 19 compatibility
-│   │   └── vanilla/   # Basic vanilla renderer
-│   └── angular-20/    # Angular 20 compatibility
-│       └── vanilla/   # Basic vanilla renderer
-├── react/             # React examples
-│   ├── vanilla/
-│   ├── bootstrap3/
-│   ├── bootstrap4/
-│   ├── bootstrap5/
-│   └── tailwind/
-├── vue/               # Vue examples
-│   ├── vanilla/
-│   ├── bootstrap3/
-│   ├── bootstrap4/
-│   ├── bootstrap5/
-│   └── tailwind/
-├── svelte/            # Svelte examples
-│   ├── vanilla/
-│   ├── bootstrap3/
-│   ├── bootstrap4/
-│   ├── bootstrap5/
-│   └── tailwind/
-├── vanilla/           # Plain JavaScript
-│   ├── esm/           # ES modules
-│   └── umd/           # UMD bundles (with assets)
-├── jquery/            # jQuery wrapper
-│   ├── vanilla/
-│   ├── bootstrap3/
-│   ├── bootstrap4/
-│   ├── bootstrap5/
-│   └── tailwind/
-└── webcomponent/      # Custom elements
-    ├── vanilla/
-    ├── bootstrap3/
-    ├── bootstrap4/
-    ├── bootstrap5/
-    └── tailwind/
+touchspin-examples/
+├── angular/              # Angular examples (17, 18, 19, 20)
+│   ├── angular-17/       # Angular 17 + vanilla renderer
+│   ├── angular-18/       # Angular 18 + vanilla renderer
+│   ├── angular-19/       # Angular 19 + vanilla renderer
+│   └── angular-20/       # Angular 20 + vanilla renderer
+├── react/
+│   └── react-vanilla/    # React + vanilla renderer
+├── vue/
+│   └── vue3-vanilla/     # Vue 3 + vanilla renderer
+├── svelte/
+│   └── svelte-vanilla/   # Svelte + vanilla renderer
+├── umd-jquery/           # jQuery UMD examples (HTML files)
+│   ├── touchspin-jquery-bootstrap3.html
+│   ├── touchspin-jquery-bootstrap4.html
+│   ├── touchspin-jquery-bootstrap5.html
+│   ├── touchspin-jquery-tailwind.html
+│   └── touchspin-jquery-vanilla.html
+├── umd-standalone/       # Standalone UMD examples (HTML files)
+│   ├── touchspin-standalone-bootstrap3.html
+│   ├── touchspin-standalone-bootstrap4.html
+│   ├── touchspin-standalone-bootstrap5.html
+│   ├── touchspin-standalone-tailwind.html
+│   └── touchspin-standalone-vanilla.html
+└── umd-webcomponent/     # Web Component UMD examples (HTML files)
+    ├── touchspin-webcomponent-bootstrap3.html
+    ├── touchspin-webcomponent-bootstrap4.html
+    ├── touchspin-webcomponent-bootstrap5.html
+    ├── touchspin-webcomponent-tailwind.html
+    └── touchspin-webcomponent-vanilla.html
 ```
 
 ## 🛠️ Setup
@@ -71,7 +55,7 @@ examples/
 ### Prerequisites
 
 - Node.js ≥18.17.0
-- pnpm ≥8.0.0
+- pnpm ≥9.12.0
 
 ### Installation
 
@@ -83,51 +67,52 @@ npm install -g pnpm
 pnpm install
 
 # Or install for specific examples
-cd examples/react/vanilla
-pnpm install
+cd react/react-vanilla
+npm install
 ```
 
 ## 🎯 Running Examples
 
-### From Root Directory
+### Framework Examples (with dev servers)
+
+Run from the root directory using pnpm:
 
 ```bash
 # Angular (each version demonstrates compatibility with a different major release)
-pnpm run angular17-vanilla  # Angular 17
-pnpm run angular18-vanilla  # Angular 18
-pnpm run angular19-vanilla  # Angular 19
-pnpm run angular20-vanilla  # Angular 20
+pnpm run angular17-vanilla  # Angular 17 + vanilla renderer
+pnpm run angular18-vanilla  # Angular 18 + vanilla renderer
+pnpm run angular19-vanilla  # Angular 19 + vanilla renderer
+pnpm run angular20-vanilla  # Angular 20 + vanilla renderer
 
 # React
-pnpm run react-vanilla
-pnpm run react-bootstrap5
+pnpm run react-vanilla      # React + vanilla renderer
 
 # Vue
-pnpm run vue-vanilla
-pnpm run vue-bootstrap5
+pnpm run vue-vanilla        # Vue 3 + vanilla renderer
 
 # Svelte
-pnpm run svelte-vanilla
-pnpm run svelte-bootstrap5
-
-# Vanilla JS
-pnpm run vanilla-esm
-pnpm run vanilla-umd
-
-# jQuery
-pnpm run jquery-bootstrap5
-
-# Web Components
-pnpm run webcomponent-vanilla
+pnpm run svelte-vanilla     # Svelte + vanilla renderer
 ```
 
-### From Example Directory
+Or run from the specific example directory:
 
 ```bash
-cd examples/react/vanilla
-pnpm install
-pnpm dev
+cd react/react-vanilla
+npm install
+npm run dev
 ```
+
+### UMD Examples (static HTML files)
+
+UMD examples are standalone HTML files that can be opened directly in a browser:
+
+```bash
+# Open any HTML file in umd-jquery/, umd-standalone/, or umd-webcomponent/
+# For example:
+open umd-standalone/touchspin-standalone-bootstrap5.html
+```
+
+These examples demonstrate CDN-based usage with jQuery, standalone mount API, and Web Components across Bootstrap 3/4/5, Tailwind, and vanilla CSS.
 
 ## 📦 Package Usage
 
@@ -153,17 +138,19 @@ npm install @touchspin/webcomponent
 
 ## 🎨 Renderer Options
 
-Each framework has examples for all renderer types:
+Currently, all framework examples use the **vanilla renderer** (framework-free CSS styling).
 
-- **Vanilla**: Framework-free CSS styling
+Additional renderer examples are planned for future versions:
 - **Bootstrap 3/4/5**: Bootstrap framework integration
 - **Tailwind**: Tailwind CSS integration
+
+UMD examples already demonstrate all renderer types (Bootstrap 3/4/5, Tailwind, and Vanilla).
 
 ## 🔧 Development
 
 ### Adding New Examples
 
-1. Create directory: `examples/{framework}/{renderer}/`
+1. Create directory: `{framework}/{framework}-{renderer}/`
 2. Add `package.json` with dependencies
 3. Add source files and configuration
 4. Update root `package.json` scripts
@@ -172,7 +159,7 @@ Each framework has examples for all renderer types:
 ### Example Structure
 
 ```
-examples/react/bootstrap5/
+react/react-bootstrap5/
 ├── package.json          # Dependencies and scripts
 ├── src/
 │   ├── App.jsx          # Main component
