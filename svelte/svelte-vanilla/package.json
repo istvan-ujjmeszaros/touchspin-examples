@@ -29,7 +29,7 @@
     "vite": "^6.0.11"
   },
   "dependencies": {
-    "@touchspin/svelte": "^5.1.0",
+    "@touchspin/svelte": "^5.0.0",
     "@touchspin/renderer-vanilla": "^5.0.1",
     "svelte": "^5.0.0"
   }
