@@ -4,22 +4,14 @@
   "version": "1.0.0",
   "description": "Comprehensive examples for TouchSpin v5 across all frameworks and configurations",
   "scripts": {
-  "angular17-vanilla": "cd examples/angular/angular-17/vanilla && pnpm dev",
-  "angular18-vanilla": "cd examples/angular/angular-18/vanilla && pnpm dev",
-  "angular19-vanilla": "cd examples/angular/angular-19/vanilla && pnpm dev",
-  "angular20-vanilla": "cd examples/angular/angular-20/vanilla && pnpm dev",
-    "react-vanilla": "cd examples/react/vanilla && pnpm dev",
-    "react-bootstrap5": "cd examples/react/bootstrap5 && pnpm dev",
-    "vue-vanilla": "cd examples/vue/vanilla && pnpm dev",
-    "vue-bootstrap5": "cd examples/vue/bootstrap5 && pnpm dev",
-    "svelte-vanilla": "cd examples/svelte/vanilla && pnpm dev",
-    "svelte-bootstrap5": "cd examples/svelte/bootstrap5 && pnpm dev",
-    "vanilla-esm": "cd examples/vanilla/esm && pnpm dev",
-    "vanilla-umd": "cd examples/vanilla/umd && pnpm dev",
-    "jquery-bootstrap5": "cd examples/jquery/bootstrap5 && pnpm dev",
-    "webcomponent-vanilla": "cd examples/webcomponent/vanilla && pnpm dev",
-    "install:all": "pnpm install",
-    "build:all": "pnpm -r build",
+    "angular17": "cd angular/angular-17 && npm start",
+    "angular18": "cd angular/angular-18 && npm start",
+    "angular19": "cd angular/angular-19 && npm start",
+    "angular20": "cd angular/angular-20 && npm start",
+    "react-vanilla": "cd react/react-vanilla && npm run dev",
+    "vue-vanilla": "cd vue/vue3-vanilla && npm run dev",
+    "svelte-vanilla": "cd svelte/svelte-vanilla && npm run dev",
+    "install:all": "npm install && cd angular/angular-17 && npm install && cd ../angular-18 && npm install && cd ../angular-19 && npm install && cd ../angular-20 && npm install && cd ../../react/react-vanilla && npm install && cd ../../vue/vue3-vanilla && npm install && cd ../../svelte/svelte-vanilla && npm install",
     "clean:all": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && find . -name 'dist' -type d -exec rm -rf '{}' +"
   },
   "keywords": [
@@ -37,8 +29,8 @@
   "author": "TouchSpin Contributors",
   "license": "MIT",
   "engines": {
-  "node": ">=18.17.0",
-  "pnpm": ">=9.12.0"
+    "node": ">=18.17.0",
+    "pnpm": ">=9.12.0"
   },
-  "packageManager": "pnpm@9.12.0"
+  "packageManager": "pnpm@10.19.0"
 }
