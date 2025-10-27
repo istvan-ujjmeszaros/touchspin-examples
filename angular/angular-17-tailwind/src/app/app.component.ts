@@ -43,8 +43,8 @@ import { TouchSpinTailwindComponent, type TouchSpinHandle } from '@touchspin/ang
   [class]="'bg-white border-blue-700 shadow-lg focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-600 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.35),0_6px_16px_rgba(15,23,42,0.18)]'"
   [inputClass]="'flex-1'"
   [coreOptions]="{
-    buttonup_class: 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white border-0 px-3 py-2 min-w-8',
-    buttondown_class: 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white border-0 px-3 py-2 min-w-8',
+    buttonup_class: 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white border-0 px-3 py-2 min-w-8 rounded-r-md',
+    buttondown_class: 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white border-0 px-3 py-2 min-w-8 rounded-l-md',
     prefix_extraclass: 'bg-blue-100 text-blue-700 px-3 py-2',
     postfix_extraclass: 'bg-blue-100 text-blue-700 px-3 py-2'
   }"
