@@ -100,6 +100,7 @@ import { TouchSpinVanillaComponent, type TouchSpinHandle } from '@touchspin/angu
       color: #0b1120;
       margin-bottom: 2rem;
       font-size: 2.5rem;
+      font-weight: bold;
     }
 
     .demo-section {
@@ -115,6 +116,7 @@ import { TouchSpinVanillaComponent, type TouchSpinHandle } from '@touchspin/angu
       margin-bottom: 1rem;
       color: #1d4ed8;
       font-size: 1.35rem;
+      font-weight: bold;
     }
 
     .demo-section p {
