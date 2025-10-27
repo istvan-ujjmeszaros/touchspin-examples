@@ -49,9 +49,11 @@
     <h2>TouchSpin Events</h2>
     <p>Events that have been fired:</p>
     <ul class="event-list">
-      <li *ngFor="let event of allEvents()" [class.fired]="firedEvents().has(event)" [class.not-fired]="!firedEvents().has(event)">
-        {{ event }}: {{ firedEvents().has(event) ? '✅ Fired' : '❌ Not fired' }}
-      </li>
+      @for (event of allEvents(); track event) {
+        <li [class.fired]="firedEvents().has(event)" [class.not-fired]="!firedEvents().has(event)">
+          {{ event }}: {{ firedEvents().has(event) ? '✅ Fired' : '❌ Not fired' }}
+        </li>
+      }
     </ul>
     <button class="reset-events-btn" (click)="resetEvents()">Reset Events</button>
   </div>

@@ -113,17 +113,18 @@
     <h2 class="text-blue-700 mb-4 text-[1.35rem] font-bold">TouchSpin Events</h2>
     <p class="text-[#1e293b] font-medium">Events that have been fired:</p>
     <ul class="list-none p-0 my-4">
-      <li
-        *ngFor="let event of allEvents"
-        class="py-2 px-3 my-1 rounded-lg font-mono text-sm"
-        [class]="
-          firedEvents.has(event)
-            ? 'bg-green-100 text-green-800 border border-green-200'
-            : 'bg-red-100 text-red-800 border border-red-200'
-        "
-      >
-        {{ event }}: {{ firedEvents.has(event) ? '✅ Fired' : '❌ Not fired' }}
-      </li>
+      @for (event of allEvents; track event) {
+        <li
+          class="py-2 px-3 my-1 rounded-lg font-mono text-sm"
+          [class]="
+            firedEvents.has(event)
+              ? 'bg-green-100 text-green-800 border border-green-200'
+              : 'bg-red-100 text-red-800 border border-red-200'
+          "
+        >
+          {{ event }}: {{ firedEvents.has(event) ? '✅ Fired' : '❌ Not fired' }}
+        </li>
+      }
     </ul>
     <button
       class="bg-blue-700 hover:bg-blue-800 text-white border-0 py-2 px-4 rounded-lg cursor-pointer text-sm transition-colors duration-200"
