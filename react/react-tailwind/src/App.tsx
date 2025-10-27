@@ -1,10 +1,10 @@
-import { useCallback, useLayoutEffect, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import TouchSpin, { type TouchSpinHandle } from '@touchspin/react/tailwind'
 import '@touchspin/renderer-tailwind/css'
 
 const tailwindCoreOptions = {
   wrapper_classes:
-    'ts-wrapper flex items-stretch rounded-xl border border-blue-600 bg-white shadow-[0_4px_16px_rgba(30,64,175,0.2)] focus-within:border-blue-700 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.35),0_6px_16px_rgba(15,23,42,0.18)] has-[:disabled]:opacity-70 has-[:disabled]:bg-blue-50/40 has-[:read-only]:bg-blue-50/20 transition-shadow duration-150 overflow-hidden',
+    'flex items-stretch rounded-xl border border-blue-600 bg-white shadow-[0_4px_16px_rgba(30,64,175,0.2)] focus-within:border-blue-700 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.35),0_6px_16px_rgba(15,23,42,0.18)] has-[:disabled]:opacity-70 has-[:disabled]:bg-blue-50/40 has-[:read-only]:bg-blue-50/20 transition-shadow duration-150 overflow-hidden',
   input_classes:
     'flex-1 px-3 py-2 bg-transparent text-slate-900 placeholder-slate-500 focus:outline-none font-medium',
   buttonup_class:
@@ -16,17 +16,6 @@ const tailwindCoreOptions = {
   postfix_extraclass:
     'px-3 py-2 bg-blue-100 text-blue-700 font-semibold whitespace-nowrap',
 }
-
-const WRAPPER_CLASS =
-  'ts-wrapper flex items-stretch rounded-xl border border-blue-600 bg-white shadow-[0_4px_16px_rgba(30,64,175,0.2)] focus-within:border-blue-700 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.35),0_6px_16px_rgba(15,23,42,0.18)] has-[:disabled]:opacity-70 has-[:disabled]:bg-blue-50/40 has-[:read-only]:bg-blue-50/20 transition-shadow duration-150 overflow-hidden'
-const BUTTON_DOWN_CLASS =
-  'inline-flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed tailwind-btn ts-btn ts-btn--down px-3 py-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold border-0 transition-colors duration-150'
-const BUTTON_UP_CLASS =
-  'inline-flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed tailwind-btn ts-btn ts-btn--up px-3 py-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold border-0 transition-colors duration-150'
-const ADDON_CLASS =
-  'inline-flex items-center tailwind-addon ts-addon px-3 py-2 bg-blue-100 text-blue-700 font-semibold whitespace-nowrap'
-const INPUT_CLASS =
-  'flex-1 px-3 py-2 bg-transparent text-slate-900 placeholder-slate-500 focus:outline-none font-medium'
 
 const panelClasses =
   'my-8 rounded-3xl border border-blue-100 bg-[#fdfcff] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_12px_28px_rgba(15,23,42,0.08)]'
@@ -53,7 +42,6 @@ export function App() {
   const [value, setValue] = useState(25.5)
   const [firedEvents, setFiredEvents] = useState<Set<EventName>>(new Set())
   const touchSpinRef = useRef<TouchSpinHandle>(null)
-  const containerRef = useRef<HTMLDivElement | null>(null)
 
   const addEvent = useCallback((eventName: EventName) => {
     setFiredEvents(prev => {
@@ -93,76 +81,15 @@ export function App() {
     }
   }, [])
 
-  const applyAngularSkin = useCallback(() => {
-    const container = containerRef.current
-    if (!container) {
-      return
-    }
-
-    const wrapper = container.querySelector('[data-touchspin-injected="wrapper"]') as
-      | HTMLElement
-      | null
-    if (!wrapper) {
-      return
-    }
-
-    wrapper.className = WRAPPER_CLASS
-
-    const downButton = wrapper.querySelector('[data-touchspin-injected="down"]') as
-      | HTMLElement
-      | null
-    if (downButton) {
-      downButton.className = BUTTON_DOWN_CLASS
-    }
-
-    const upButton = wrapper.querySelector('[data-touchspin-injected="up"]') as
-      | HTMLElement
-      | null
-    if (upButton) {
-      upButton.className = BUTTON_UP_CLASS
-    }
-
-    const prefix = wrapper.querySelector('[data-touchspin-injected="prefix"]') as
-      | HTMLElement
-      | null
-    if (prefix) {
-      prefix.className = ADDON_CLASS
-    }
-
-    const postfix = wrapper.querySelector('[data-touchspin-injected="postfix"]') as
-      | HTMLElement
-      | null
-    if (postfix) {
-      postfix.className = ADDON_CLASS
-    }
-
-    const input = wrapper.querySelector('[data-touchspin-injected="input"]') as
-      | HTMLElement
-      | null
-    if (input) {
-      input.className = INPUT_CLASS
-    }
-  }, [])
-
-  useLayoutEffect(() => {
-    const frame = requestAnimationFrame(() => {
-      applyAngularSkin()
-    })
-
-    return () => cancelAnimationFrame(frame)
-  }, [applyAngularSkin, value])
-
-  const eventHandlers: Record<EventName, () => void> = {
-    onMin: () => addEvent('onMin'),
-    onMax: () => addEvent('onMax'),
-    onStartSpin: () => addEvent('onStartSpin'),
-    onStopSpin: () => addEvent('onStopSpin'),
-    onStartUpSpin: () => addEvent('onStartUpSpin'),
-    onStartDownSpin: () => addEvent('onStartDownSpin'),
-    onStopUpSpin: () => addEvent('onStopUpSpin'),
-    onStopDownSpin: () => addEvent('onStopDownSpin'),
-    onSpeedChange: () => addEvent('onSpeedChange'),
-  }
+  const handleMinEvent = useCallback(() => addEvent('onMin'), [addEvent])
+  const handleMaxEvent = useCallback(() => addEvent('onMax'), [addEvent])
+  const handleStartSpinEvent = useCallback(() => addEvent('onStartSpin'), [addEvent])
+  const handleStopSpinEvent = useCallback(() => addEvent('onStopSpin'), [addEvent])
+  const handleStartUpSpinEvent = useCallback(() => addEvent('onStartUpSpin'), [addEvent])
+  const handleStartDownSpinEvent = useCallback(() => addEvent('onStartDownSpin'), [addEvent])
+  const handleStopUpSpinEvent = useCallback(() => addEvent('onStopUpSpin'), [addEvent])
+  const handleStopDownSpinEvent = useCallback(() => addEvent('onStopDownSpin'), [addEvent])
+  const handleSpeedChangeEvent = useCallback(() => addEvent('onSpeedChange'), [addEvent])
 
   return (
     <div className="mx-auto max-w-[50rem] rounded-3xl border border-blue-200 bg-white p-8 font-sans shadow-[0_18px_36px_rgba(15,23,42,0.12)]">
@@ -209,29 +136,27 @@ export function App() {
 
       <section className={panelClasses}>
         <h2 className="text-[1.35rem] font-bold text-blue-700">USD Spinner with Event Tracking</h2>
-        <div ref={containerRef}>
-          <TouchSpin
-            ref={touchSpinRef}
-            value={value}
-            onChange={setValue}
-            coreOptions={tailwindCoreOptions}
-            min={0}
-            max={100}
-            step={0.5}
-            decimals={2}
-            prefix="$"
-            suffix=" USD"
-            onMin={eventHandlers.onMin}
-            onMax={eventHandlers.onMax}
-            onStartSpin={eventHandlers.onStartSpin}
-            onStopSpin={eventHandlers.onStopSpin}
-            onStartUpSpin={eventHandlers.onStartUpSpin}
-            onStartDownSpin={eventHandlers.onStartDownSpin}
-            onStopUpSpin={eventHandlers.onStopUpSpin}
-            onStopDownSpin={eventHandlers.onStopDownSpin}
-            onSpeedChange={eventHandlers.onSpeedChange}
-          />
-        </div>
+        <TouchSpin
+          ref={touchSpinRef}
+          value={value}
+          onChange={setValue}
+          coreOptions={tailwindCoreOptions}
+          min={0}
+          max={100}
+          step={0.5}
+          decimals={2}
+          prefix="$"
+          suffix=" USD"
+          onMin={handleMinEvent}
+          onMax={handleMaxEvent}
+          onStartSpin={handleStartSpinEvent}
+          onStopSpin={handleStopSpinEvent}
+          onStartUpSpin={handleStartUpSpinEvent}
+          onStartDownSpin={handleStartDownSpinEvent}
+          onStopUpSpin={handleStopUpSpinEvent}
+          onStopDownSpin={handleStopDownSpinEvent}
+          onSpeedChange={handleSpeedChangeEvent}
+        />
         <p className="mt-4 font-medium text-[#1e293b]">
           Current value: ${value.toFixed(2)} USD
         </p>
