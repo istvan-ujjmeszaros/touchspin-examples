@@ -1,6 +1,6 @@
 <template>
   <div class="App">
-    <h1>TouchSpin Vue Event Demo</h1>
+    <h1>TouchSpin Vue Vanilla</h1>
 
     <div class="demo-section">
       <h2>Imperative API Methods</h2>
@@ -160,7 +160,7 @@ const resetEvents = () => {
 .App h1 {
   color: #0b1120;
   margin-bottom: 2rem;
-  font-size: 2.5rem;
+  font-size: 2.25rem;
 }
 
 .demo-section {
