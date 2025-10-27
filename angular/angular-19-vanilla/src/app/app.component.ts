@@ -8,7 +8,7 @@ import { TouchSpinVanillaComponent, type TouchSpinHandle } from '@touchspin/angu
   standalone: true,
   imports: [CommonModule, FormsModule, TouchSpinVanillaComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   @ViewChild('touchSpinComponent') touchSpinComponent?: TouchSpinVanillaComponent;
