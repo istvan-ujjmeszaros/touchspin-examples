@@ -4,14 +4,15 @@
   "version": "1.0.0",
   "description": "Comprehensive examples for TouchSpin v5 across all frameworks and configurations",
   "scripts": {
-    "angular17-vanilla": "cd angular/angular-17 && npm start",
-    "angular18-vanilla": "cd angular/angular-18 && npm start",
-    "angular19-vanilla": "cd angular/angular-19 && npm start",
-    "angular20-vanilla": "cd angular/angular-20 && npm start",
+  "angular17-vanilla": "cd angular/angular-17-vanilla && npm start",
+  "angular17-tailwind": "cd angular/angular-17-tailwind && npm start",
+  "angular18-vanilla": "cd angular/angular-18-vanilla && npm start",
+  "angular19-vanilla": "cd angular/angular-19-vanilla && npm start",
+  "angular20-vanilla": "cd angular/angular-20-vanilla && npm start",
     "react-vanilla": "cd react/react-vanilla && npm run dev",
     "vue-vanilla": "cd vue/vue3-vanilla && npm run dev",
     "svelte-vanilla": "cd svelte/svelte-vanilla && npm run dev",
-    "install:all": "npm install && cd angular/angular-17 && npm install && cd ../angular-18 && npm install && cd ../angular-19 && npm install && cd ../angular-20 && npm install && cd ../../react/react-vanilla && npm install && cd ../../vue/vue3-vanilla && npm install && cd ../../svelte/svelte-vanilla && npm install",
+    "install:all": "npm install && cd angular/angular-17-vanilla && npm install && cd ../angular-17-tailwind && npm install && cd ../angular-18-vanilla && npm install && cd ../angular-19-vanilla && npm install && cd ../angular-20-vanilla && npm install && cd ../../react/react-vanilla && npm install && cd ../../vue/vue3-vanilla && npm install && cd ../../svelte/svelte-vanilla && npm install",
     "clean:all": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && find . -name 'dist' -type d -exec rm -rf '{}' +"
   },
   "keywords": [
