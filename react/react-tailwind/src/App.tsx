@@ -4,7 +4,7 @@ import '@touchspin/renderer-tailwind/css'
 
 const tailwindCoreOptions = {
   wrapper_classes:
-    'ts-wrapper flex items-stretch rounded-xl border border-blue-600 bg-white shadow-[0_4px_16px_rgba(30,64,175,0.2)] focus-within:border-blue-700 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.35),0_6px_16px_rgba(15,23,42,0.18)] has-[:disabled]:opacity-70 has-[:disabled]:bg-blue-50/40 has-[:read-only]:bg-blue-50/20 transition-shadow duration-150 overflow-hidden',
+    'flex items-stretch rounded-xl border border-blue-600 bg-white shadow-[0_4px_16px_rgba(30,64,175,0.2)] focus-within:border-blue-700 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.35),0_6px_16px_rgba(15,23,42,0.18)] has-[:disabled]:opacity-70 has-[:disabled]:bg-blue-50/40 has-[:read-only]:bg-blue-50/20 transition-shadow duration-150 overflow-hidden',
   input_classes:
     'flex-1 px-3 py-2 bg-transparent text-slate-900 placeholder-slate-500 focus:outline-none font-medium',
   buttonup_class:
