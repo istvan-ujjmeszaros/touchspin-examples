@@ -30,7 +30,7 @@
     </section>
 
     <section :class="panelClasses">
-      <h2 class="text-[1.35rem] font-bold text-blue-700">USD Spinner with Event Tracking</h2>
+      <h2 class="mb-4 text-[1.35rem] font-bold text-blue-700">USD Spinner with Event Tracking</h2>
       <TouchSpin
         ref="touchSpinRef"
         v-model="value"

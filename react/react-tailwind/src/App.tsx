@@ -134,7 +134,7 @@ export function App() {
       </section>
 
       <section className={panelClasses}>
-        <h2 className="text-[1.35rem] font-bold text-blue-700">USD Spinner with Event Tracking</h2>
+        <h2 className="mb-4 text-[1.35rem] font-bold text-blue-700">USD Spinner with Event Tracking</h2>
         <TouchSpin
           ref={touchSpinRef}
           value={value}
