@@ -1,2 +1,6 @@
 packages:
   - 'examples/**'
+  - 'angular/**'
+  - 'react/**'
+  - 'svelte/**'
+  - 'vue/**'
