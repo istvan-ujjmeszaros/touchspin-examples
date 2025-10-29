@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@touchspin/vue": "^5.1.0",
-    "@touchspin/renderer-tailwind": "^5.1.0",
+    "@touchspin/renderer-tailwind": "^5.2.0",
     "@touchspin/renderer-vanilla": "^5.0.1",
     "vue": "^3.4.0"
   },

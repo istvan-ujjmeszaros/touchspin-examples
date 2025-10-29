@@ -30,7 +30,7 @@
     </section>
 
     <section :class="panelClasses">
-      <h2 class="text-[1.35rem] font-bold text-blue-700">USD Spinner with Event Tracking</h2>
+      <h2 class="mb-4 text-[1.35rem] font-bold text-blue-700">USD Spinner with Event Tracking</h2>
       <TouchSpin
         ref="touchSpinRef"
         v-model="value"
@@ -83,6 +83,15 @@ import TouchSpin from '@touchspin/vue/vanilla'
 import type { TouchSpinHandle } from '@touchspin/vue'
 import { TailwindRenderer } from '@touchspin/renderer-tailwind'
 
+type TailwindOverrideOptions = Partial<TouchSpinCoreOptions> & {
+  wrapper_classes?: string
+  input_classes?: string
+  buttonup_class?: string
+  buttondown_class?: string
+  prefix_classes_override?: string
+  postfix_classes_override?: string
+}
+
 const touchSpinRef = ref<TouchSpinHandle>()
 const value = ref(25.5)
 const firedEvents = ref(new Set<EventName>())
@@ -96,22 +105,25 @@ const secondaryButtonClasses =
 const firedEventClasses = 'border border-green-200 bg-green-100 text-green-800'
 const idleEventClasses = 'border border-red-200 bg-red-100 text-red-800'
 
-const tailwindRendererOptions = {
+const heroWrapperClasses =
+  'flex items-stretch rounded-xl border border-blue-600 bg-white shadow-[0_4px_16px_rgba(30,64,175,0.2)] focus-within:border-blue-700 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.35),0_6px_16px_rgba(15,23,42,0.18)] transition-shadow duration-150 overflow-hidden'
+const heroInputClasses =
+  'flex-1 px-4 py-3 bg-transparent text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:border-blue-500 font-medium'
+const heroButtonClasses =
+  'px-4 py-3 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold border-0 transition-colors duration-150'
+const heroAddonClasses =
+  'inline-flex items-center px-4 py-3 bg-blue-100 text-blue-700 font-semibold whitespace-nowrap'
+
+const tailwindRendererOptions: TailwindOverrideOptions = {
   renderer: TailwindRenderer,
   focusablebuttons: true,
-  wrapper_classes:
-    'flex items-stretch rounded-xl border border-blue-600 bg-white shadow-[0_4px_16px_rgba(30,64,175,0.2)] focus-within:border-blue-700 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.35),0_6px_16px_rgba(15,23,42,0.18)] has-[:disabled]:opacity-70 has-[:disabled]:bg-blue-50/40 has-[:read-only]:bg-blue-50/20 transition-shadow duration-150 overflow-hidden',
-  input_classes:
-    'flex-1 px-3 py-2 bg-transparent text-slate-900 placeholder-slate-500 focus:outline-none font-medium',
-  buttonup_class:
-    'px-3 py-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold border-0 transition-colors duration-150',
-  buttondown_class:
-    'px-3 py-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold border-0 transition-colors duration-150',
-  prefix_extraclass:
-    'px-3 py-2 bg-blue-100 text-blue-700 font-semibold whitespace-nowrap',
-  postfix_extraclass:
-    'px-3 py-2 bg-blue-100 text-blue-700 font-semibold whitespace-nowrap',
-} satisfies Partial<TouchSpinCoreOptions>
+  wrapper_classes: heroWrapperClasses,
+  input_classes: heroInputClasses,
+  buttonup_class: heroButtonClasses,
+  buttondown_class: heroButtonClasses,
+  prefix_classes_override: heroAddonClasses,
+  postfix_classes_override: heroAddonClasses,
+}
 
 const tailwindCoreOptionsForComponent =
   tailwindRendererOptions as Partial<Omit<TouchSpinCoreOptions, 'renderer'>>
