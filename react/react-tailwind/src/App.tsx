@@ -7,9 +7,9 @@ const tailwindCoreOptions = {
   input_classes:
     'flex-1 px-4 py-3 bg-transparent text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:border-blue-500 font-medium',
   buttondown_class:
-    'px-4 py-3 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold border-0 transition-colors duration-150 rounded-l-xl',
+    'px-4 py-3 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold border-0 transition-colors duration-150',
   buttonup_class:
-    'px-4 py-3 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold border-0 transition-colors duration-150 rounded-r-xl',
+    'px-4 py-3 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold border-0 transition-colors duration-150',
   prefix_classes_override:
     'inline-flex items-center px-4 py-3 bg-blue-100 text-blue-700 font-semibold whitespace-nowrap',
   postfix_classes_override:
