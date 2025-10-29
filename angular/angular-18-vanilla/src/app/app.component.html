@@ -1,0 +1,62 @@
+<div class="App">
+  <h1>TouchSpin Angular 18 Vanilla</h1>
+
+  <section class="demo-section">
+    <h2>Imperative API Methods</h2>
+    <p>Test all TouchSpin methods via the component reference:</p>
+    <div class="method-buttons">
+      <button (click)="touchSpinComponent?.focus()">Focus</button>
+      <button (click)="touchSpinComponent?.blur()">Blur</button>
+      <button (click)="touchSpinComponent?.increment()">Increment</button>
+      <button (click)="touchSpinComponent?.decrement()">Decrement</button>
+      <button (click)="handleGetValue()">Get Value</button>
+      <button (click)="handleSetValue()">Set Value</button>
+      <button (click)="touchSpinComponent?.startUpSpin()">Start Up Spin</button>
+      <button (click)="touchSpinComponent?.startDownSpin()">Start Down Spin</button>
+      <button (click)="touchSpinComponent?.stopSpin()">Stop Spin</button>
+      <button (click)="handleUpdateSettings()">Update Settings</button>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>USD Spinner with Event Tracking</h2>
+    <touch-spin
+      #touchSpinComponent
+      name="value"
+      [(ngModel)]="value"
+      [min]="0"
+      [max]="100"
+      [step]="0.5"
+      [decimals]="2"
+      [prefix]="'$'"
+      [suffix]="' USD'"
+      (onMin)="handleEvent('onMin')"
+      (onMax)="handleEvent('onMax')"
+      (onStartSpin)="handleEvent('onStartSpin')"
+      (onStopSpin)="handleEvent('onStopSpin')"
+      (onStartUpSpin)="handleEvent('onStartUpSpin')"
+      (onStartDownSpin)="handleEvent('onStartDownSpin')"
+      (onStopUpSpin)="handleEvent('onStopUpSpin')"
+      (onStopDownSpin)="handleEvent('onStopDownSpin')"
+      (onSpeedChange)="handleEvent('onSpeedChange')"
+    >
+    </touch-spin>
+    <p>Current value: ${{ value.toFixed(2) }} USD</p>
+  </section>
+
+  <section class="demo-section">
+    <h2>TouchSpin Events</h2>
+    <p>Events that have been fired:</p>
+    <ul class="event-list">
+      @for (event of allEvents; track event) {
+        <li
+          [class.fired]="firedEvents.has(event)"
+          [class.not-fired]="!firedEvents.has(event)"
+        >
+          {{ event }}: {{ firedEvents.has(event) ? '✅ Fired' : '❌ Not fired' }}
+        </li>
+      }
+    </ul>
+    <button class="reset-events-btn" (click)="resetEvents()">Reset Events</button>
+  </section>
+</div>
