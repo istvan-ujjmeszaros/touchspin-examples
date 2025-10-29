@@ -6,14 +6,14 @@ const tailwindCoreOptions = {
     'flex items-stretch rounded-2xl border border-blue-600 bg-white shadow-[0_4px_16px_rgba(30,64,175,0.2)] focus-within:border-blue-700 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.35),0_6px_16px_rgba(15,23,42,0.18)] transition-shadow duration-150 overflow-hidden',
   input_classes:
     'flex-1 px-4 py-3 bg-transparent text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:border-blue-500 font-medium',
-  buttonup_class:
-    'tailwind-btn ts-btn ts-btn--up bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold transition-colors duration-150 px-4 py-3 rounded-lg',
   buttondown_class:
-    'tailwind-btn ts-btn ts-btn--down bg-blue-600 hover:bg-blue-700 active- bg-blue-800 text-white font-semibold transition-colors duration-150 px-4 py-3 rounded-lg',
+    'px-4 py-3 rounded-l-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold border-0 transition-colors duration-150',
+  buttonup_class:
+    'px-4 py-3 rounded-r-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold border-0 transition-colors duration-150',
   prefix_classes_override:
-    'ts-addon ts-prefix inline-flex items-center px-4 py-3 bg-blue-100 text-blue-700 font-semibold whitespace-nowrap rounded-l-lg',
+    'inline-flex items-center px-4 py-3 bg-blue-100 text-blue-700 font-semibold whitespace-nowrap rounded-l-xl',
   postfix_classes_override:
-    'ts-addon ts-postfix inline-flex items-center px-4 py-3 bg-blue-100 text-blue-700 font-semibold whitespace-nowrap rounded-r-lg',
+    'inline-flex items-center px-4 py-3 bg-blue-100 text-blue-700 font-semibold whitespace-nowrap rounded-r-xl',
 }
 
 const panelClasses =
